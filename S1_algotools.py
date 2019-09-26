@@ -22,7 +22,7 @@ tab_From_List=np.array(tab_list)
     
 
     
-def moyenne(tableau):
+def max_value(tableau):
     """
     Functions who will do the average of an array
     """
@@ -35,7 +35,7 @@ def moyenne(tableau):
              Som+=tableau[id]
     return Som/N      
 
-print(moyenne(tab_From_List)) 
+print(max_value(tab_From_List)) 
              
         #print('tab['+str(id)+']=' +str(tab_From_List[id]))
         #print('tab[{index}]={val}'.format(index=id, val=tab_From_List[id]))
