@@ -14,11 +14,12 @@ Paolo Da Costa
                 - The program will return an error, because they will have a division by zero.
 """
 
-tab_list=[1,2,3,4,6,7]
+tab_List=[1,2,3,4,6,7]
 
 import numpy as np #numpy 
+import cv2
 #tab_zeros= np.zeros(12, dtype=np.int32)
-tab_From_List=np.array(tab_list)
+tab_From_List=np.array(tab_List)
     
 
     
@@ -29,24 +30,56 @@ def max_value(tableau):
     
     N = 0
     Som = 0
-
+    
+    if not(isinstance(tableau, list)):         
+        raise ValueError('max_value expected a list as input')
+      
     for id in range(len(tableau)):
          if tableau[id] >0:
              N+=1
              Som+=tableau[id]
-    return Som/N      
+    return Som/N     
+ 
 
-print(max_value(tab_From_List)) 
+print(max_value(tab_List)) 
+#print(max_value(tab_From_List)) 
              
         #print('tab['+str(id)+']=' +str(tab_From_List[id]))
         #print('tab[{index}]={val}'.format(index=id, val=tab_From_List[id]))
+   
+           
+
+"""
+def reverse_table(tableau_Reverse):
     
-def reverse_table(Tableau_Reverse):
-    """
     Function who will reverse a table
-    """
-    for id in reversed(Tableau_Reverse):
-        print (i)
     
+    if not(isinstance(tableau_Reverse, list)):         
+        raise ValueError('max_value expected a list as input')
         
+    buffer = len(tableau_Reverse)
+    turns = int(len(tableau_Reverse)/2)
+    
+    for i in range(turns):
+        buff_I = buffer-i
+        tmp=tableau_Reverse[i]
+        tableau_Reverse[i]=tableau_Reverse[buff_I]
+        tableau_Reverse[tableau_Reverse[buff_I]]=tmp
+    return tableau_Reverse
+    
+print(reverse_table(tab_List))   
+"""
+def roi_bbox ():
+    matrix=np.zeros((10,10), dtype=np.int32)
+    
+    matrix[3:6, 4:8]=np.ones((3,4), dtype=np.int32)
+    
+    for idrow in range (matrix.shape[0]):
+        for idcol in range (matrix.shape[1]):
+            pixVal=matrix[idrow, idcol]
+    img=cv2.imread('pokeball.png',0)
+    cv2.imshow('read image', img)
+    cv2.waitKey()      
+    
+roi_bbox()
            
