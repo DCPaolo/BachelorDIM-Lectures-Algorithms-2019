@@ -26,6 +26,7 @@ def max_value(tableau):
     """
     Functions who will do the average of an array
     """
+    
     N = 0
     Som = 0
 
@@ -40,5 +41,12 @@ print(max_value(tab_From_List))
         #print('tab['+str(id)+']=' +str(tab_From_List[id]))
         #print('tab[{index}]={val}'.format(index=id, val=tab_From_List[id]))
     
-       
+def reverse_table(Tableau_Reverse):
+    """
+    Function who will reverse a table
+    """
+    for id in reversed(Tableau_Reverse):
+        print (i)
+    
+        
            
