@@ -14,14 +14,16 @@ Paolo Da Costa
                 - The program will return an error, because they will have a division by zero.
 """
 
-tab_List=[1,2,3,4,6,7]
 
 import numpy as np #numpy 
 import cv2
 tab_zeros= np.zeros(12, dtype=np.int32)
-tab_From_List=np.array(tab_List)
+#tab_From_List=np.array(tab_List)
+tab_List=[1,2,3,4,6,7]
     
-
+img=cv2.imread('pokeball.png',0)
+cv2.imshow('read image', img)
+cv2.waitKey()
     
 def max_value(tableau):
     """
@@ -38,7 +40,7 @@ def max_value(tableau):
          if tableau[id] >0:
              N+=1
              Som+=tableau[id]
-    return Som/N     
+    return Som/N    
  
 
 print(max_value(tab_List)) 
@@ -68,27 +70,27 @@ print(reverse_table(tab_List))
 
 def roi_bbox (bounding_Box):
     
-    img=cv2.imread('pokeball.png',0)
-    cv2.imshow('read image', img)
-    cv2.waitKey()
+    
     Coordonee_Haut = 0
     Coordonee_Droit = 0
     Coordonee_Gauche = 0
     Coordonee_Bas = 0
     
-    for idrow in range (img.shape[0]):
-        for idcol in range (img.shape[1]):
-            if Coordonee_Haut > idrow:
-                Coordonee_Haut = idrow
-            if Coordonee_Bas < idrow:
-                Coordonee_Bas =idrow
-            if Coordonee_Gauche < idcol:
-                Coordonee_Gauche = idcol
-            if Coordonee_Droit > idcol:
-                Coordonee_Droit = idcol
-    bounding_Box = [Coordonee_Haut, Coordonee_Bas, Coordonee_Droit, Coordonee_Gauche]
-    return bounding_Box
+    for idrow in range (bounding_Box.shape[0]):
+        for idcol in range (bounding_Box.shape[1]):
+            if (bounding_Box[idrow][idcol]!=0):       
+                if Coordonee_Haut > idrow:
+                    Coordonee_Haut = idrow
+                if Coordonee_Bas < idrow:
+                    Coordonee_Bas =idrow
+                if Coordonee_Gauche < idcol:
+                    Coordonee_Gauche = idcol
+                if Coordonee_Droit > idcol:
+                    Coordonee_Droit = idcol
+    bounding_Box = [[Coordonee_Haut, Coordonee_Gauche], [Coordonee_Haut, Coordonee_Droit], [Coordonee_Bas, Coordonee_Gauche], [Coordonee_Bas, Coordonee_Gauche]]
     print (bounding_Box)
+    return bounding_Box 
     
-roi_bbox()
-      
+    
+roi_bbox(img)
+  
