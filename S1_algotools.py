@@ -90,31 +90,5 @@ def roi_bbox (bounding_Box):
     return bounding_Box
     print (bounding_Box)
     
-    
-          
-    """
-    top = h
-    bottom = 0
-    right =
-    left = 0
-    
-    for idrow in range (img.shape[0]):
-        for idcol in range (img.shape[1]):
-            if top > row:
-                top = row
-            if bottom < row:
-                bottom = row
-            if left < col:
-                left = col
-            if right > col:
-                right = col
-                
-    pix_Val=img[idrow, idcol]
-            if pix_Val != 0 and compteur == 0:
-                compteur = 1
-                print (idrow, idcol)
-    
-    
-    """
 roi_bbox()
       
