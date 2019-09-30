@@ -18,8 +18,7 @@ tab_List=[1,2,3,4,6,7]
 
 import numpy as np #numpy 
 import cv2
-import pytest
-#tab_zeros= np.zeros(12, dtype=np.int32)
+tab_zeros= np.zeros(12, dtype=np.int32)
 tab_From_List=np.array(tab_List)
     
 
@@ -43,11 +42,6 @@ def max_value(tableau):
  
 
 print(max_value(tab_List)) 
-#print(max_value(tab_From_List)) 
-             
-        #print('tab['+str(id)+']=' +str(tab_From_List[id]))
-        #print('tab[{index}]={val}'.format(index=id, val=tab_From_List[id]))
-   
            
 
 
@@ -69,14 +63,14 @@ def reverse_table(tableau_Reverse):
         
     return tableau_Reverse
     
-print(reverse_table(tab_List))   
+print(reverse_table(tab_List))  
+ 
 
-def roi_bbox ():
+def roi_bbox (bounding_Box):
     
     img=cv2.imread('pokeball.png',0)
     cv2.imshow('read image', img)
     cv2.waitKey()
-    compteur = 0
     Coordonee_Haut = 0
     Coordonee_Droit = 0
     Coordonee_Gauche = 0
@@ -84,11 +78,43 @@ def roi_bbox ():
     
     for idrow in range (img.shape[0]):
         for idcol in range (img.shape[1]):
-            pix_Val=img[idrow, idcol]
+            if Coordonee_Haut > idrow:
+                Coordonee_Haut = idrow
+            if Coordonee_Bas < idrow:
+                Coordonee_Bas =idrow
+            if Coordonee_Gauche < idcol:
+                Coordonee_Gauche = idcol
+            if Coordonee_Droit > idcol:
+                Coordonee_Droit = idcol
+    bounding_Box = [Coordonee_Haut, Coordonee_Bas, Coordonee_Droit, Coordonee_Gauche]
+    return bounding_Box
+    print (bounding_Box)
+    
+    
+          
+    """
+    top = h
+    bottom = 0
+    right =
+    left = 0
+    
+    for idrow in range (img.shape[0]):
+        for idcol in range (img.shape[1]):
+            if top > row:
+                top = row
+            if bottom < row:
+                bottom = row
+            if left < col:
+                left = col
+            if right > col:
+                right = col
+                
+    pix_Val=img[idrow, idcol]
             if pix_Val != 0 and compteur == 0:
                 compteur = 1
                 print (idrow, idcol)
-          
     
+    
+    """
 roi_bbox()
       
