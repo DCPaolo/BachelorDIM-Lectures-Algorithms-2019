@@ -9,8 +9,8 @@ import S1_algotools.py as algo
 import pytest
 
 def test_max_value():
-    tab_List=[1,2,3,4,6,7]
     tab_From_List=np.array(tab_List)
+    return
     
 
 def test_reverse_table():
