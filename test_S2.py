@@ -5,18 +5,18 @@ Created on Mon Sep 30 09:33:01 2019
 @author: Paolo Da Costa
 """
 
-import S1_algotools.py 
+import S1_algotools.py as s1_test
 import pytest
 
 def test_average_above_zero_working1():
 	tab_list=[1,2,3,-4,6,-9]
-	test, lastID=tobetested.average_above_zero(tab_list)
+	test, lastID=s1_test.average_above_zero(tab_list)
 	assert test==3
 
 def test_average_above_zero_divideZero():
 	tab_list=[-1,-2,-3,-4,-6,-9]
 	with pytest.raises(ZeroDivisionError):
-		tobetested.average_above_zero(tab_list)
+		s1_test.average_above_zero(tab_list)
 	
 	
 
