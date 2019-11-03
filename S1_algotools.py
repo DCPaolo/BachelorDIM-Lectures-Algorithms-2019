@@ -16,14 +16,14 @@ Paolo Da Costa
 
 
 import numpy as np #numpy 
-#import cv2
+import cv2
 tab_zeros= np.zeros(12, dtype=np.int32)
 #tab_From_List=np.array(tab_List)
 tab_List=[1,2,3,4,6,7]
     
-""" img=cv2.imread('pokeball.png',0)
+img=cv2.imread('pokeball.png',0)
 cv2.imshow('read image', img)
-cv2.waitKey() """
+cv2.waitKey()
     
 def average_above_zero(tableau):
     """
@@ -90,7 +90,7 @@ def reverse_table(tableau_Reverse):
 print(reverse_table(tab_List))  
  
 
-""" def roi_bbox (bounding_Box):
+def roi_bbox (bounding_Box):
     #Function who will find the boundind box of an picture
     #Args : bouding_box : 2d array (pictures)
     Returns the bouding box of numpy array
@@ -117,5 +117,5 @@ print(reverse_table(tab_List))
     return bounding_Box 
     
     
-roi_bbox(img) """
+roi_bbox(img)
   
